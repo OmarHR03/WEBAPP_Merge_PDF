@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>AMOM BUSINESS NETWORK</title>
+</head>
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <a href="http://127.0.0.1:5000/" class="link"> AMOM</a>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link active">Home</a></li>
+                <li><a href="#" class="link">Blog</a></li>
+                <li><a href="#" class="link">Services</a></li>
+                <li><a href="#" class="link">About</a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+            <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+
+<!----------------------------- Form box ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- login form -------------------------->
+
+        
+        <!------------------- registration form -------------------------->
+        <div class="register-container" id="login">
+            <div class="top">
+                <span>¡Bienvenidos al formulario de <a href="https://amombusinessnetwork.com" onclick="login()">AMOM!</a></span>
+                <header>FORMULARIO AMOM</header>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input id="first_name" name="first_name" type="text" class="input-field" placeholder="Nombres">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input id="last_name" name="last_name" type="text" class="input-field" placeholder="Apellidos">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input id="email" name="email" type="text" class="input-field" placeholder="Email">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input id="document" name="document" type="text" class="input-field" placeholder="ID Document">
+                    <i class='bx bx-id-card'></i>
+                </div>
+            
+                <div class="two-forms">
+                    <input type="file" name="pdf_files" id="files" accept=".pdf" multiple>
+                    <label class="btnfile" for="files"><i class='bx bx-import' style="margin-right: 10px;"></i>Upload a file</label>
+                    <div class="input-box">
+                        <input id="age" name="age" type="number" class="input-field" placeholder="Age">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+            
+                <div class="file-count" id="file-count"></div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Merge PDF">
+                </div>
+            </form>
+            
+
+            
+            
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Remember Me</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Terms & conditions</a></label>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>   
+
+<script>
+    const input = document.getElementById('files');
+    const fileCountDisplay = document.getElementById('file-count');
+
+    input.addEventListener('change', function() {
+        const fileCount = this.files.length;
+        fileCountDisplay.textContent = `PDFs selected: ${fileCount}`;
+    });
+</script>
+
+
+<script>
+   
+   function myMenuFunction() {
+    var i = document.getElementById("navMenu");
+
+    if(i.className === "nav-menu") {
+        i.className += " responsive";
+    } else {
+        i.className = "nav-menu";
+    }
+   }
+ 
+</script>
+
+
+
+</body>
+</html>
+
